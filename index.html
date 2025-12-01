@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master SIP Trunking | The Developer's Guide</title>
+    <meta name="description"
+        content="A comprehensive, interactive tutorial on SIP Trunking, VoIP protocols, and call flows.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">SIP<span style="color: var(--text-main)">Mastery</span></div>
+            <div class="nav-links">
+                <a href="#intro">Introduction</a>
+                <a href="#protocols">Protocols</a>
+                <a href="#call-flow">Call Flows</a>
+                <a href="#quiz">Quiz</a>
+            </div>
+            <a href="https://docs.skyswitch.com" target="_blank" class="btn btn-outline">Docs <i
+                    class="fas fa-external-link-alt"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-content fade-in">
+            <h1>Understand SIP Trunking <br> Like a Pro</h1>
+            <p>Dive deep into the architecture of modern VoIP. Interactive guides, real-world call flows, and
+                developer-focused insights.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#intro" class="btn btn-primary">Start Learning</a>
+                <a href="#protocols" class="btn btn-outline" style="margin-left: 1rem;">Explore Protocols</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="intro" class="section">
+        <div class="container">
+            <div class="grid-2 fade-in">
+                <div>
+                    <h2>What is SIP Trunking?</h2>
+                    <p>Session Initiation Protocol (SIP) Trunking is the digital method of making and receiving phone
+                        calls and other digital communication over an internet connection. It replaces traditional
+                        analog phone lines (PRI/ISDN).</p>
+                    <p>Think of it as a virtual pipe that connects your on-premise Phone System (PBX) to the Public
+                        Switched Telephone Network (PSTN) via the Internet.</p>
+
+                    <div class="grid-2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <i class="fas fa-bolt protocol-icon"></i>
+                            <h4>Scalable</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 0;">Add channels instantly without physical
+                                wiring.</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-shield-alt protocol-icon"></i>
+                            <h4>Reliable</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 0;">Geo-redundancy and failover capabilities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram-container">
+                    <!-- Placeholder for a conceptual image or the first uploaded diagram if relevant -->
+                    <img src="assets/images/sip-diagram-1.png" alt="SIP Overview Diagram">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Protocols -->
+    <section id="protocols" class="section" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+                <h2>The 4 Core VoIP Protocols</h2>
+                <p>Modern VoIP isn't just one thing. It's a symphony of four distinct protocols working together.</p>
+            </div>
+
+            <div class="grid-4 fade-in">
+                <div class="card protocol-card">
+                    <i class="fas fa-traffic-light protocol-icon" style="color: #f59e0b;"></i>
+                    <h3>SIP</h3>
+                    <p style="font-size: 0.9rem; color: var(--primary);">The Traffic Controller</p>
+                    <p style="font-size: 0.9rem;">Handles call setup, control, and termination. It does NOT carry audio.
+                    </p>
+                </div>
+                <div class="card protocol-card">
+                    <i class="fas fa-file-contract protocol-icon" style="color: #3b82f6;"></i>
+                    <h3>SDP</h3>
+                    <p style="font-size: 0.9rem; color: var(--primary);">The Negotiator</p>
+                    <p style="font-size: 0.9rem;">Defines the "rules" for media: codecs, IP addresses, and ports.</p>
+                </div>
+                <div class="card protocol-card">
+                    <i class="fas fa-truck protocol-icon" style="color: #ef4444;"></i>
+                    <h3>RTP</h3>
+                    <p style="font-size: 0.9rem; color: var(--primary);">The Delivery Truck</p>
+                    <p style="font-size: 0.9rem;">Streams the actual voice and video data in real-time.</p>
+                </div>
+                <div class="card protocol-card">
+                    <i class="fas fa-chart-line protocol-icon" style="color: #10b981;"></i>
+                    <h3>RTCP</h3>
+                    <p style="font-size: 0.9rem; color: var(--primary);">The Quality Inspector</p>
+                    <p style="font-size: 0.9rem;">Monitors call quality (jitter, packet loss) and reports back.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Flow Interactive -->
+    <section id="call-flow" class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="fade-in">
+                    <h2>Interactive Call Flow</h2>
+                    <p>Click through the steps to understand exactly what happens when you make a call.</p>
+
+                    <div class="flow-steps" id="flow-steps">
+                        <div class="step active" onclick="showStep(1)">
+                            <div class="step-content">
+                                <h4>1. INVITE</h4>
+                                <p style="margin-bottom: 0;">Caller sends a request to initiate a session. Contains SDP
+                                    offer.</p>
+                            </div>
+                        </div>
+                        <div class="step" onclick="showStep(2)">
+                            <div class="step-content">
+                                <h4>2. 100 Trying / 180 Ringing</h4>
+                                <p style="margin-bottom: 0;">Server acknowledges receipt and indicates the callee's
+                                    phone is ringing.</p>
+                            </div>
+                        </div>
+                        <div class="step" onclick="showStep(3)">
+                            <div class="step-content">
+                                <h4>3. 200 OK</h4>
+                                <p style="margin-bottom: 0;">Callee answers. Contains SDP answer (agreed codecs/ports).
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step" onclick="showStep(4)">
+                            <div class="step-content">
+                                <h4>4. ACK & RTP Stream</h4>
+                                <p style="margin-bottom: 0;">Caller acknowledges connection. Audio (RTP) begins flowing
+                                    directly between devices.</p>
+                            </div>
+                        </div>
+                        <div class="step" onclick="showStep(5)">
+                            <div class="step-content">
+                                <h4>5. BYE</h4>
+                                <p style="margin-bottom: 0;">Either party hangs up. Session is terminated.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="diagram-container" style="position: sticky; top: 100px;">
+                        <img src="assets/images/sip-diagram-2.png" alt="SIP Call Flow Diagram">
+                        <div id="flow-overlay"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                            <!-- Dynamic highlights could go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="live-demo" class="section" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; margin-bottom: 3rem;">
+                <h2>Live SIP Demo</h2>
+                <p>Experience a simulated SIP call in real-time. Watch the messages flow between endpoints.</p>
+            </div>
+
+            <div class="grid-2">
+                <!-- Visual Animation Area -->
+                <div class="demo-visual">
+                    <div class="endpoint" id="caller-endpoint">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Caller</span>
+                    </div>
+                    <div class="server-node">
+                        <i class="fas fa-server"></i>
+                        <span>SIP Server</span>
+                    </div>
+                    <div class="endpoint" id="callee-endpoint">
+                        <i class="fas fa-phone"></i>
+                        <span>Callee</span>
+                    </div>
+
+                    <!-- Connection Lines -->
+                    <div class="connection-line line-left"></div>
+                    <div class="connection-line line-right"></div>
+
+                    <!-- Moving Packets -->
+                    <div class="packet" id="demo-packet"></div>
+
+                    <div class="status-indicator" id="call-status">Status: Idle</div>
+                </div>
+
+                <!-- Console Log -->
+                <div class="console-wrapper">
+                    <div class="console-header">
+                        <span><i class="fas fa-terminal"></i> SIP Console</span>
+                        <div class="console-controls">
+                            <button id="start-call-btn" class="btn-xs btn-primary">Start Call</button>
+                            <button id="reset-call-btn" class="btn-xs btn-outline">Reset</button>
+                        </div>
+                    </div>
+                    <div class="console-body" id="sip-console">
+                        <div class="log-entry system">> Ready to initiate call...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Built for learning. Reference: <a href="https://docs.skyswitch.com"
+                    style="color: var(--primary);">SkySwitch Docs</a></p>
+            <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2025 SIP Mastery</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
